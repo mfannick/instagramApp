@@ -19,6 +19,8 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.userF.username
+    def saveProfile(self):
+        self.save()
 
 
 class Image (models.Model):
@@ -33,6 +35,8 @@ class Image (models.Model):
 
     def __str__(self):
         return self.imageName
+    def saveImage(self):
+        self.save()
 
     @classmethod
     def searchImageByUser(cls,search_term):
