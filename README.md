@@ -14,7 +14,7 @@
      -Python
      -Django 
    ### BDD
-   <img src='/media/profileImage/yes.png' alt='image'>
+   <img src='./media/profileImage/yes.png' alt='image'>
 
 
    ### Contact information
