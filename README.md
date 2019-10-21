@@ -14,7 +14,7 @@
      -Python
      -Django 
    ### BDD
-   <img src='./media/profileImage/Screenshot from 2019-10-21 16-04-07.png' alt='image'>
+   <img src='/media/profileImage/yes.png' alt='image'>
 
 
    ### Contact information
