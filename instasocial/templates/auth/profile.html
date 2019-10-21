@@ -1,0 +1,75 @@
+{% extends 'social/base.html'%}
+{% load bootstrap3%}
+{% block content%}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+        {% for profile in profiles%}
+
+        <!-- <p>{{profile.userF}}</p>
+        <img src="{{profile.userPic.url}}" alt="userPic" srcset="">
+        <p> Bio:{{profile.userBio}}</p>
+        <p>created:{{profile.profileTime}}</p> -->
+
+
+
+        <!-- <div class="col-lg-4 col-md-6"> -->
+
+            <h4 class="py-lg-4 pb-4 text-center">profile</h4>
+
+            <!--Card-->
+            <div class="card card-cascade">
+
+                <!--Card image-->
+                <div class="view view-cascade">
+                    <img src="{{profile.userPic.url}}" class="card-img-top" alt="userPic">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <!--/.Card image-->
+
+                <!--Card content-->
+                <div class="card-body card-body-cascade text-center">
+                    <!--Title-->
+                    <h4 class="card-title"><strong>{{profile.userF.username}}</strong></h4>
+                    <h5>Web developer</h5>
+
+                    <p class="card-text">Bio:{{profile.userBio}}
+                    </p>
+                    <p class="card-text">created:{{profile.profileTime}}
+                    </p>
+                    <span>
+                        <form action="{% url 'instaSocial:logOut'%}" method="post">
+                            {% csrf_token%}
+                            <button class="btn btn-outline-light  btn-sm"><input type="submit" value="logOut"></button>
+                        </form>
+                    </span>
+                    <span><a href="{% url 'instaSocial:postImage'%}"><button class="btn btn-outline-info  btn-sm"
+                        type="submit">postImage</button></a></span>
+
+                </div>
+                <!--/.Card content-->
+
+            </div>
+            <!--/.Card-->
+
+        <!-- </div> -->
+    </div>
+ \
+
+
+
+    {% endfor%}
+</div>
+<div class="col-md-3"></div>
+</div>
+<!-- {% for profile in profiles%}
+
+<p>{{profile.userF}}</p>
+<img src="{{profile.userPic.url}}" alt="userPic" srcset="">
+<p> Bio:{{profile.userBio}}</p>
+<p>created:{{profile.profileTime}}</p>
+{% endfor%} -->
+
+{% endblock %}
