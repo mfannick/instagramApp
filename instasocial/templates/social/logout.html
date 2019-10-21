@@ -1,0 +1,9 @@
+{%extends 'social/base.html'%}
+{%block content%}
+{% load bootstrap3 %}
+{{ block.super}}
+<form action="{% url 'instaAccount:logOut'%}" method="post">
+    {% csrf_token%}
+    <button class="btn btn-outline-light  btn-sm"><input type="submit" value="logOut"></button>
+</form>
+{%endblock%}
