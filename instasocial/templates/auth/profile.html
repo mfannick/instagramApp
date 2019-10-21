@@ -22,7 +22,7 @@
 
                 <!--Card image-->
                 <div class="view view-cascade">
-                    <img src="{{profile.userPic.url}}" class="card-img-top" alt="userPic">
+                    <img src="{{user.userPic.url}}" class="card-img-top" alt="userPic">
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -32,12 +32,12 @@
                 <!--Card content-->
                 <div class="card-body card-body-cascade text-center">
                     <!--Title-->
-                    <h4 class="card-title"><strong>{{profile.userF.username}}</strong></h4>
+                    <h4 class="card-title"><strong>{{user.userF.username}}</strong></h4>
                     <h5>Web developer</h5>
 
-                    <p class="card-text">Bio:{{profile.userBio}}
+                    <p class="card-text">Bio:{{user.userBio}}
                     </p>
-                    <p class="card-text">created:{{profile.profileTime}}
+                    <p class="card-text">created:{{user.profileTime}}
                     </p>
                     <span>
                         <form action="{% url 'instaSocial:logOut'%}" method="post">
