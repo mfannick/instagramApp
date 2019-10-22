@@ -12,7 +12,8 @@ from .models import Image,Profile
 # Create your views here.
 
 def homePage(request):
-    postImage=Image.objects.all().order_by('imageTime')
+    currentUser=request.user.username
+    postImage=Image.objects.filter(userF__username=currentUser).order_by('imageTime')
     return render(request,'social/homePage.html',{'images':postImage})
 @login_required(login_url='/accounts/')
 def postImage(request):
@@ -75,7 +76,7 @@ def logOut(request):
     if request.method=='POST':
         logout(request)
         return redirect('instaSocial:logIn')
-@login_required(login_url='/accounts/')
+# @login_required(login_url='/accounts/')
 def createProfile(request):
     current_user = request.user
     if request.method=='POST':
@@ -93,12 +94,15 @@ def createProfile(request):
         form=forms.CreateProfile()
     return render(request,'auth/createProfile.html',{'form':form})
 
-def viewProfile(request,pk=None):
-    # profile=Profile.objects.all()
-    # return render(request,'auth/profile.html',{'profiles':profile})
-    if pk:
-        user = User.objects.get(pk=pk)
-    else:
-        user = request.user
-    # args = {'user': user}
-    return render(request, 'auth/profile.html', {'user': user})
+def viewProfile(request):
+    currentUser=request.user.username
+    profile=Profile.objects.filter(userF__username=currentUser)
+    return render(request,'auth/profile.html',{'profiles':profile})
+# def viewProfile(request):
+    # return render(request, 'auth/profile.html')
+    # if pk:
+    #     user = User.objects.get(pk=pk)
+    # else:
+    #     user = request.user
+    # # args = {'user': user}
+    # return render(request, 'auth/profile.html', {'user': user})

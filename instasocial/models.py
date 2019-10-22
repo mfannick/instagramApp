@@ -14,13 +14,13 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     userF=models.ForeignKey(User,on_delete=models.CASCADE)
     userBio=models.TextField()
-    userPic=models.ImageField(default='default.png',upload_to='profileImage/',blank=True)
+    userPic=models.ImageField(default='default.jpg',upload_to='profileImage/')
     profileTime=models.DateField(auto_now_add=True)
     
     def __str__(self):
         return self.userF.username
-    def saveProfile(self):
-        self.save()
+    # def saveProfile(self):
+    #     self.save()
 
 
 class Image (models.Model):
